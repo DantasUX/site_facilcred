@@ -1,10 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 import styled from "styled-components";
+import {primaryColor , darkBackground} from "../UI/variables"
 
 
 const Container = styled.div`
-  background-color: #fff;
+  background-color: ${darkBackground};
   height: 500px ;
 
 

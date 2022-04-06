@@ -15,8 +15,6 @@ const Container = styled.div`
   font-weight: 200;
   box-shadow: 0px 5px 5px  ${({ theme }) => theme.shadow};
 
-
-
 `;
 const Menu = styled.nav`
   max-width: 900px;
@@ -34,7 +32,7 @@ const Logo = styled.img`
 const Links = styled.div`
   display: flex ;
   align-items: center;
-  animation: cursor 2s;
+  animation: cursor 1s;
   @media (max-width: 600px){
     position: absolute ;
     right: 0;
@@ -46,6 +44,7 @@ const Links = styled.div`
     background-color: ${({ theme }) => theme.menu} !important;
     display: ${(props) => props.status ? "flex" : "none" } ;
     box-shadow: -5px 5px 5px  ${({ theme }) => theme.shadow};
+    z-index: 1 ;
   }
 
   @keyframes cursor{
