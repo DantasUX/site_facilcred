@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, {useState} from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import {primaryColor} from "../UI/variables"
 import { HiMenu } from 'react-icons/hi';
 
@@ -18,23 +18,23 @@ const Container = styled.div`
 
 
 `;
-
 const Menu = styled.nav`
   max-width: 900px;
   margin: auto ;
   display: flex ;
   justify-content:  space-between ;
+  align-items: center ;
 
 `;
-
 const Logo = styled.img`
-  width: 120px ;
-  src: ${logoDarck};
+  width: 7rem ;
+  height: 1.9rem ;
+  animation: cursor 2s;
 `;
-
 const Links = styled.div`
   display: flex ;
   align-items: center;
+  animation: cursor 2s;
   @media (max-width: 600px){
     position: absolute ;
     right: 0;
@@ -46,29 +46,52 @@ const Links = styled.div`
     background-color: ${({ theme }) => theme.menu} !important;
     display: ${(props) => props.status ? "flex" : "none" } ;
     box-shadow: -5px 5px 5px  ${({ theme }) => theme.shadow};
+  }
 
-
+  @keyframes cursor{
+    0%{
+      opacity: 0 ;
+      padding-top: 10px ;
+    }
+    100%{
+      opacity: 1 ;
+      padding-top: 0px ;
+    }
   }
 `;
-
 const Link = styled.a`
   font-size: 0.8rem ;
-  font-weight: 600 ;
+  font-weight: 400 ;
   padding: 0.8rem ;
+  margin-left: 1rem ;
   text-decoration: none ;
-  color: ${({ theme }) => theme.text} !important;
-  @media (max-width: 600px){
-    color: ${({ theme }) => theme.textMenu} !important;
+  color: ${({ theme }) => theme.text} ;
+
+
+  :hover{
+    animation: linkHouver 1.2s ;
   }
 
-`;
+  @keyframes linkHouver{
+    0%{
+    }
+    100%{
+      background-color: rgba(0,0,0,0.1);
+    }
+  }
 
+  @media (max-width: 600px){
+    color: ${({ theme }) => theme.textMenu};
+  }
+
+
+`;
 const LinksSimulador = styled(Link)`
   background-color: ${primaryColor} ;
   color: #fff !important;
   border-radius: 8px ;
-`;
 
+`;
 const BtnResponsive = styled.button`
   display: none ;
   background-color: ${({ theme }) => theme.body} !important;
@@ -81,14 +104,8 @@ const BtnResponsive = styled.button`
 
 `;
 
-
-
 function Header(tema){
   const [displayMenu, setDisplayMenu]= useState(false);
-
-
-
-
   return (
     <Container elevation={4} >
       <Menu>
