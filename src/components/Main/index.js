@@ -40,7 +40,7 @@ const Subject = styled.h1`
   line-height: 1;
   overflow: hidden;
   color: ${({ theme }) => theme.text};
-  margin-bottom: 2rem ;
+  margin-bottom: 4rem ;
   left: 50px ;
   animation: animeText 1s;
 

@@ -50,11 +50,9 @@ const Links = styled.div`
   @keyframes cursor{
     0%{
       opacity: 0 ;
-      padding-top: 10px ;
     }
     100%{
       opacity: 1 ;
-      padding-top: 0px ;
     }
   }
 `;
