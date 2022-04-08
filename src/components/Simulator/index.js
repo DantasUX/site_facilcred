@@ -12,7 +12,7 @@ import logocinza from "../../img/marcadagua.png"
 
 
 const Container = styled.div`
-  background: linear-gradient(180deg, ${primaryColor} 25rem, ${darkBackground} 25rem);
+  background: linear-gradient(180deg, ${primaryColor} 25rem, ${({ theme }) => theme.body} 25rem);
   margin-top: -10rem;
   padding-bottom: 50px ;
   @media (max-width: 500px){
@@ -21,14 +21,13 @@ const Container = styled.div`
   }
 
 `;
-
 const BoxSimulator = styled.div`
   max-width: 700px ;
   width: 90% ;
   margin: auto ;
   background-color:  ${({ theme }) => theme.body};
   border-radius: 8px ;
-  box-shadow: 0px 10px 25px black;
+  box-shadow: 0px 10px 25px  #262626;
   margin-top: 15rem ;
   padding: 0rem;
   position: relative;
@@ -76,8 +75,6 @@ const BtnCalculate = styled(Button)`
   height: 2.5rem ;
 
 `;
-
-
 const Result = styled(BoxSimulator)`
   margin-top: -0.8rem ;
   padding: 5rem 1rem ;
@@ -101,8 +98,6 @@ const Result = styled(BoxSimulator)`
     }
   }
 `;
-
-/*const Table = styled.div``;*/
 
 
 function Simulator(){
@@ -134,6 +129,4 @@ function Simulator(){
   );
 
 }
-
-
 export default Simulator;
