@@ -14,8 +14,7 @@ const Container = styled.div`
   max-width: 900px ;
   margin: auto ;
   display: flex ;
-  height: 25rem ;
-  justify-content: space-around ;
+  justify-content: space-between ;
   align-items: center ;
   @media (max-width: 600px){
     flex-direction: column-reverse ;
@@ -26,11 +25,16 @@ const Container = styled.div`
 `;
 
 const Description = styled.div`
-  width:35% ;
+  margin-top: 8rem ;
+  width:40% ;
+  @media (max-width: 900px){
+    padding-left: 2rem ;
+    margin-top: 5rem ;
+    width:60% ;
+  }
   @media (max-width: 600px){
     width:80% ;
   }
-
 
 `;
 
@@ -84,8 +88,14 @@ const BtnSimulator = styled(Button)`
 `;
 
 const ImgMain = styled.img`
-  width: 50% ;
+  width: 48% ;
+  padding-top:  0rem;
   animation:animeImg 2s ;
+
+  @media (max-width: 900px){
+    padding-right: 2rem ;
+    width: 50% ;
+  }
 
   @media (max-width: 600px){
     /*position: absolute ;

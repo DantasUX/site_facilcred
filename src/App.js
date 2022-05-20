@@ -12,7 +12,11 @@ import BtnEdit from "./components/UI/BtnEdit"
 import Header from "./components/Header/index"
 import Main from "./components/Main/index"
 import Simulator from "./components/Simulator/index"
+import Services from "./components/Services/index"
 import Differentials from "./components/Differentials/index"
+import Doubts from "./components/Doubts/index"
+import Baseboard from "./components/Baseboard/index"
+import Dantas from "./components/Dantas/index"
 
 
 
@@ -33,10 +37,17 @@ function App() {
         <Header tema={(tema)} />
         <Main/>
         <Simulator/>
+        <Services/>
         <Differentials/>
       </>
+{/*
+
+      <Doubts/>
+      <Baseboard/>
+      <Dantas/>
+*/}
+
       {/*
-      <Contacts/>
       <Baseboard/>*/}
      </ThemeProvider>
   );
