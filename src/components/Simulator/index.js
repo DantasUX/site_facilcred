@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import {primaryColor , darkBackground} from "../UI/variables"
 import TextField from '@mui/material/TextField';
@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import { AiOutlineSend } from 'react-icons/ai';
 import TableSimulator from "../TableSimulator/index"
 import logocinza from "../../img/marcadagua.png"
+import  Aos from "aos";
+import "aos/dist/aos.css"
 
 
 
@@ -15,9 +17,17 @@ const Container = styled.div`
   background: linear-gradient(180deg, ${primaryColor} 25rem, ${({ theme }) => theme.body} 25rem);
   margin-top: -10rem;
   padding-bottom: 50px ;
-  @media (max-width: 500px){
-    margin-top: -8.5rem;
+  @media (max-width: 800px){
+    margin-top: -7.5rem;
+  }
 
+  @media (max-width: 700px){
+    margin-top: -5rem;
+  }
+
+
+  @media (max-width: 500px){
+    margin-top: -5rem;
   }
 
 `;
@@ -83,7 +93,7 @@ const Result = styled(BoxSimulator)`
   background-repeat: no-repeat, repeat;
   background-position: bottom -50px left -50px;
   background-color: #E7E7E9;
-  animation: animeResultado 2s ;
+  animation: animeResultado 1s ;
 
   @keyframes animeResultado{
     0%{
@@ -101,9 +111,14 @@ const Result = styled(BoxSimulator)`
 
 
 function Simulator(){
+  useEffect(() =>{
+    Aos.init({ duration: 2000});
+
+  },[])
+
   return (
-    <Container >
-      <BoxSimulator>
+    <Container id="simulator" >
+      <BoxSimulator >
         <div className="header">
           <Line/>
           <Title>SIMULADOR <p> Faça já sua simuláção e solicite seu emprestimo</p></Title>
@@ -121,8 +136,9 @@ function Simulator(){
           />
           <BtnCalculate><AiOutlineSend/></BtnCalculate>
         </Calculate>
+
       </BoxSimulator>
-      <Result>
+      <Result data-aos="fade-top">
         <TableSimulator/>
       </Result>
     </Container>

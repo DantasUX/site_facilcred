@@ -30,6 +30,8 @@ const rows = [
 const BoxTable = styled(Table)`
   width: 80% !important;
   margin: auto ;
+  overflow-x: none;
+
 `;
 
 
@@ -48,12 +50,21 @@ const ItemTable = styled(TableRow)`
   height: 5px  !important ;
 
 
+
 `;
 
 const ItemTableTitles = styled(TableCell)`
   font-size: 0.6rem !important ;
   height: 5px !important ;
   padding: 5px !important ;
+  white-space: nowrap;
+`;
+
+const ItemTableTitlesVTotal = styled(ItemTableTitles)`
+@media (max-width: 490px){
+    display: none !important ;
+  }
+
 `;
 
 const ItemTableParcela = styled(TableCell)`
@@ -71,11 +82,30 @@ const ItemTableValorParcela = styled(TableCell)`
   font-weight: 800 !important ;
   color: ${darkBackground} !important ;
   width: 35%;
+  white-space: nowrap;
+  overflow: hidden;
+
+  p{ display: none}
+  @media (max-width: 490px){
+    p{
+      display: block;
+      font-size: 0.8rem !important ;
+      font-weight: 100 !important ;
+    }
+  }
 
 `;
 const ItemTableValorTotal = styled(TableCell)`
   width: 30%;
+  @media (max-width: 490px){
+    display: none !important ;
+  }
 `;
+const ItemTableCedulaBtn = styled(TableCell)`
+  width: 30%;
+
+`;
+
 
 const ItemTableBtn = styled(Button)`
   color: #fff !important;
@@ -91,9 +121,9 @@ function TableSimulator(){
     <BoxTable>
       <TableHead>
         <ItemTable>
-          <ItemTableTitles align="left">Nº Parcelas</ItemTableTitles>
+          <ItemTableTitles align="left">Parcelas</ItemTableTitles>
           <ItemTableTitles align="left">Valor da Parcela</ItemTableTitles>
-          <ItemTableTitles align="left">Valor Total</ItemTableTitles>
+          <ItemTableTitlesVTotal align="left">Valor Total</ItemTableTitlesVTotal>
           <ItemTableTitles align="left"></ItemTableTitles>
         </ItemTable>
       </TableHead>
@@ -101,9 +131,9 @@ function TableSimulator(){
         {rows.map((row) => (
           <ItemTable key={row.parcela}   className={row.index % 2 === 0 ? "impar" : "par"}>
             <ItemTableParcela  align="left">{row.parcela}</ItemTableParcela>
-            <ItemTableValorParcela align="left">{row.valorparcela}</ItemTableValorParcela>
+            <ItemTableValorParcela align="left">{row.valorparcela}<p>{row.valortotal}</p></ItemTableValorParcela>
             <ItemTableValorTotal align="left">{row.valortotal}</ItemTableValorTotal>
-            <ItemTableValorTotal align="right"> <ItemTableBtn>CONTRATAR</ItemTableBtn>    </ItemTableValorTotal>
+            <ItemTableCedulaBtn align="right"> <ItemTableBtn>CONTRATAR</ItemTableBtn>    </ItemTableCedulaBtn>
           </ItemTable>
         ))}
       </ResultadosTable>

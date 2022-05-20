@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import styled, { keyframes } from "styled-components";
 import {primaryColor} from "../UI/variables"
 import { HiMenu } from 'react-icons/hi';
+import {Link}  from 'react-scroll'
 
 import logoLight from "../../img/logo.png"
 import logoDarck from "../../img/logo02.png"
@@ -36,15 +37,15 @@ const Links = styled.div`
   @media (max-width: 600px){
     position: absolute ;
     right: 0;
-    top: 3.5rem;
+    top: 3.3rem;
     width: 45vw;
-    height: 92vh ;
+    height: 102vh ;
     flex-direction: column ;
     align-items: center ;
     background-color: ${({ theme }) => theme.menu} !important;
     display: ${(props) => props.status ? "flex" : "none" } ;
-    box-shadow: -5px 5px 5px  ${({ theme }) => theme.shadow};
-    z-index: 1 ;
+    box-shadow: 0px 10px 25px  #262626;
+    z-index: 2 ;
   }
 
   @keyframes cursor{
@@ -56,7 +57,8 @@ const Links = styled.div`
     }
   }
 `;
-const Link = styled.a`
+
+const BtnMenu = styled(Link)`
   font-size: 0.8rem ;
   font-weight: 400 ;
   padding: 0.8rem ;
@@ -86,7 +88,16 @@ const Link = styled.a`
 const LinksSimulador = styled(Link)`
   background-color: ${primaryColor} ;
   color: #fff !important;
-  border-radius: 8px ;
+  border-radius: 5px ;
+  padding: 0.5rem;
+  margin-left: 1rem;
+
+  :hover{
+    background-color: #000 ;
+    color: ${primaryColor};
+  }
+
+
 
 `;
 const BtnResponsive = styled.button`
@@ -108,9 +119,9 @@ function Header(tema){
       <Menu>
        <Logo src={ tema && tema.tema ?  logoLight :  logoDarck}  alt="logotipo da Facil cred" />
        <Links status={displayMenu}>
-         <Link href="#">Diferencial</Link>
-         <Link href="#">Contatos</Link>
-         <LinksSimulador href="#">Simulador</LinksSimulador>
+         <BtnMenu to="differentials" spy={true} smooth={true} offset={50} >Diferencial</BtnMenu>
+         <BtnMenu to="services" spy={true} smooth={true} offset={50} >Serviços</BtnMenu>
+         <LinksSimulador to="simulator" spy={true} smooth={true} offset={50} >Simulador</LinksSimulador>
        </Links>
        <BtnResponsive onClick={() => setDisplayMenu(!displayMenu)}><HiMenu/></BtnResponsive>
        </Menu>
