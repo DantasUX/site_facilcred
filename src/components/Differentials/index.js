@@ -119,7 +119,7 @@ function Differentials(){
         <BoxInfo>
           <BoxTitleDiferentials>
             <TitleDiferentials>
-              POQUE PEDIR EMPRÉSTIMO A<br></br>
+              POR QUE PEDIR EMPRÉSTIMO A<br></br>
               <span>FÁCIL CRED?</span>
             </TitleDiferentials>
             <Line/>
